@@ -1,8 +1,8 @@
 import React from 'react';
 import { AppState, useAppStore } from '../state/state';
 import shallow from 'zustand/shallow';
-import styled from 'styled-components';
-import { TestComponent } from './TestComponent';
+import { Text } from '@react-three/drei';
+import { TestBox } from '../scene/TestBox';
 
 const selector = ({ dec, inc, counter }: AppState) => ({ dec, inc, counter });
 
@@ -10,16 +10,12 @@ export const Counter: React.FC = () => {
   const { counter, inc, dec } = useAppStore(selector, shallow);
 
   return (
-    <Flex>
-      <button onClick={dec}>-</button>
-      <TestComponent name={counter.toString()} />
-      <button onClick={inc}>+</button>
-    </Flex>
+    <group>
+      <TestBox onClick={dec} position={[10, 0, 0]} hoveredColor={`#ff1111`} />
+      <Text fontSize={5} rotation={[Math.PI / 2, Math.PI, 0]}>
+        {counter}
+      </Text>
+      <TestBox onClick={inc} position={[-10, 0, 0]} hoveredColor={`#11ff11`} />
+    </group>
   );
 };
-
-const Flex = styled.div`
-  width: 100px;
-  display: flex;
-  justify-content: space-between;
-`;

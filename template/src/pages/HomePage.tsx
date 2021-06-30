@@ -1,10 +1,9 @@
 import React from 'react';
-import { TestComponent } from '../components/TestComponent';
+import { ApplicationScene } from '../scene/SegmentationScene';
 import { Counter } from '../components/Counter';
 
 export const HomePage: React.FC = () => (
-  <div>
-    <TestComponent name={`Hello world!`} />
+  <ApplicationScene>
     <Counter />
-  </div>
+  </ApplicationScene>
 );
