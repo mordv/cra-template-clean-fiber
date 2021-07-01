@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useContextBridge } from '@react-three/drei';
 import { ThemeContext } from 'styled-components';
 
-export const SceneContent: React.FC = ({ children }) => (
+const SceneContent: React.FC = ({ children }) => (
   <>
     <ambientLight />
     <pointLight position={[10, 10, 10]} />
